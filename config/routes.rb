@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
   
+  namespace :customers do
+    get 'orders/index'
+    get 'orders/show'
+    get 'orders/new'
+  end
+  namespace :customers do
+    get 'orderd_items/index'
+    get 'orderd_items/show'
+    get 'orderd_items/finish'
+    get 'orderd_items/confirm'
+    get 'orderd_items/create'
+  end
+  namespace :customers do
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :customers do
+    get 'customers/show'
+    get 'customers/edit'
+  end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -26,7 +46,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update]
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
-    
+    root to: 'tops#index'
     get '/about' => 'tops#about'
     resources :items, only: [:index, :show]
     post 'orders/confirm'
@@ -37,7 +57,7 @@ Rails.application.routes.draw do
     resources :carts, only: [:index, :create, :update, :destroy]
     resources :orderd_items, only: [:index, :show]
   end
-  root to: 'tops#index'
+  
   get '/contact' => 'contact#index'
   get '/contact/confirm' => 'contact#confirm'
   get '/contact/thanks' => 'contact#thanks'
