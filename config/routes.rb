@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :orderd_items, only: [:update]
   end
 
+
   scope module: :customers do
     resources :customers, only: [:show, :edit, :update]
     get 'customers/unsubscribe'
