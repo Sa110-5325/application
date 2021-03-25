@@ -10,6 +10,7 @@
   <header>
     <ul>
       <% if customer_signed_in? %>
+        <li><%= link_to "アバウト", about_path %></li>
         <li><%= link_to "トップ", root_path %></li>
         <li><%= link_to "カート", carts_path %></li>
         <li><%= link_to "商品一覧", items_path %></li>
@@ -29,10 +30,4 @@
   <body>
     <%= yield %>
   </body>
-  <footer>
-    <% if admin_signed_in? %>
-    <% else %>
-      管理者の方は<%= link_to "こちら", new_admin_session_path %>から
-    <% end %>
-  </footer>
 </html>
