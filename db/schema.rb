@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_034251) do
+ActiveRecord::Schema.define(version: 2021_03_25_022420) do
 
   create_table "admins", force: :cascade do |t|
-    t.string "name", default: "t", null: false
-    t.string "email", default: "t", null: false
-    t.string "password_digest", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "carts", force: :cascade do |t|
@@ -38,16 +39,21 @@ ActiveRecord::Schema.define(version: 2021_03_24_034251) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "family_name"
+    t.string "first_name"
+    t.string "family_name_kana"
+    t.string "first_name_kana"
     t.boolean "status", default: true, null: false
-    t.string "postal_code", default: "t", null: false
-    t.string "address", default: "t", null: false
-    t.string "phone_number", default: "t", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "postal_code"
+    t.string "address"
+    t.string "phone_number"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
