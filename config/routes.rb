@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
 
+
   scope module: :customers do
     resources :customers, only: [:show, :edit, :update]
     get 'customers/unsubscribe'
