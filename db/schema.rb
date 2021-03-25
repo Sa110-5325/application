@@ -13,11 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_03_24_034251) do
 
   create_table "admins", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.string "name", default: "t", null: false
+    t.string "email", default: "t", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "carts", force: :cascade do |t|
@@ -37,15 +38,16 @@ ActiveRecord::Schema.define(version: 2021_03_24_034251) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.boolean "status", default: true, null: false
-    t.string "postal_code"
-    t.string "address"
-    t.string "phone_number"
-    t.string "email", default: "", null: false
-    t.string "password_digest", default: "", null: false
+    t.string "postal_code", default: "t", null: false
+    t.string "address", default: "t", null: false
+    t.string "phone_number", default: "t", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
   create_table "genres", force: :cascade do |t|

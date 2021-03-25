@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Apply</title>
+    <title>ECサイト（ブラウザ）</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <ul>
+      <% if current_customer %>
+        <li><%= link_to "商品一覧", items_path %></li>
+        <li><%= link_to "カート", carts_path %></li>
+        <li><%= link_to "マイページ", customer_path %></li>
+        <li><%= link_to "ログアウト", logout_path %></li>
+      <% else %>
+        <li><%= link_to "ログイン", login_path %></li>
+      <% end %>
+    </ul>
+  </header>
 
   <body>
     <%= yield %>
