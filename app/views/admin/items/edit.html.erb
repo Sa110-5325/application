@@ -1,0 +1,5 @@
+<%= form_with model: @item do |f| %>
+  <%= f.label :画像 %>
+  <%= f.label :なまえ %>
+  <%= f.text_field :name, value: @item %>
+<% end %>
