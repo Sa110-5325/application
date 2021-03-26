@@ -3,5 +3,8 @@
   <%= f.submit "登録" %>
 <% end %>
 
-
-
+<% @genres.each do |genre| %>
+  <%= link_to edit_admin_genre_path(genre) do %>
+    <%= genre.name %>
+  <% end %>
+<% end %>
