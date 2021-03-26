@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   namespace :customers do
     get 'orders/index'
     get 'orders/show'
@@ -25,13 +25,13 @@ Rails.application.routes.draw do
     passwords: 'admins/passwords',
     registrations: 'admins/registrations'
   }
-  
+
   devise_for :customers, controllers: {
     sessions: 'customers/sessions',
     passwords: 'customers/passwords',
     registrations: 'customers/registrations'
   }
-  
+
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update] do
       get '/orders' => 'orders#index'
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :edit, :create, :update]
     resources :orderd_items, only: [:update]
   end
-  
+
   scope module: :customers do
     resources :customers, only: [:show, :edit, :update]
     get 'customers/unsubscribe'
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     resources :carts, only: [:index, :create, :update, :destroy]
     resources :orderd_items, only: [:index, :show]
   end
-  
+
   get '/contact' => 'contact#index'
   get '/contact/confirm' => 'contact#confirm'
   get '/contact/thanks' => 'contact#thanks'
