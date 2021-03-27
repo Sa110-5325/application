@@ -1,4 +1,5 @@
 <% @customers.each do |customer| %>
 <%= customer.id %>
-<%= link_to customer.family_name&customer.first_name, admin_customer_path(customer) %>
+<%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %>
+<%= customer.status %>
 <% end %>
