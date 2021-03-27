@@ -1,2 +1,6 @@
-<h1>Customers::Items#show</h1>
-<p>Find me in app/views/customers/items/show.html.erb</p>
+<%= attachment_image_tag @item, :image %>
+商品名<%= @item.name %>
+ジャンル<%= @item.genre.name %>
+説明<%= @item.info %>
+値段<%= @item.price %>
+<%= link_to "カートに入れる", carts_path %>
