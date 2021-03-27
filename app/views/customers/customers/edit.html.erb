@@ -1,2 +1,19 @@
-<h1>Customers::Customers#edit</h1>
-<p>Find me in app/views/customers/customers/edit.html.erb</p>
+<%= form_with model: @customer, url: customer_path do |f| %>
+  <%= f.label :姓 %>
+  <%= f.text_field :family_name %>
+  <%= f.label :名 %>
+  <%= f.text_field :first_name %>
+  <%= f.label :セイ %>
+  <%= f.text_field :family_name_kana %>
+  <%= f.label :メイ %>
+  <%= f.text_field :first_name_kana %>
+  <%= f.label :郵便番号 %>
+  <%= f.text_field :postal_code %>
+  <%= f.label :住所 %>
+  <%= f.text_field :address %>
+  <%= f.label :電話番号 %>
+  <%= f.text_field :phone_number %>
+  <%= f.label :メールアドレス %>
+  <%= f.text_field :email %>
+  <%= f.submit "更新" %>
+<% end %>
