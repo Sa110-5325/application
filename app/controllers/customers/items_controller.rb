@@ -5,5 +5,6 @@ class Customers::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @carts = Cart.new
   end
 end
