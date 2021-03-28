@@ -1,5 +1,5 @@
 マイページ
-<%= attachment_image_tag @customer, :profile_image %>
+<%= attachment_image_tag @customer, :profile_image, fallback: "no-image.jpg" %>
 <%= @customer.family_name %>
 <%= @customer.first_name %>
 <%= @customer.family_name_kana %>
