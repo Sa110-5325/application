@@ -1,4 +1,6 @@
 <%= form_with model: @customer, url: customer_path do |f| %>
+  <%= f.label :プロフィール写真 %>
+  <%= f.attachment_field :profile_image %>
   <%= f.label :姓 %>
   <%= f.text_field :family_name %>
   <%= f.label :名 %>

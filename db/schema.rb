@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_022420) do
     t.string "first_name"
     t.string "family_name_kana"
     t.string "first_name_kana"
+    t.text "profile_image_id"
     t.boolean "status", default: true, null: false
     t.string "postal_code"
     t.string "address"

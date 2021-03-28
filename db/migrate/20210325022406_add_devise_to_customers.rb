@@ -8,6 +8,7 @@ class AddDeviseToCustomers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :family_name_kana
       t.string :first_name_kana
+      t.text :profile_image_id
       t.boolean :status, null: false, default: true
       t.string :postal_code
       t.string :address
