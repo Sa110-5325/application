@@ -6,11 +6,11 @@ Rails.application.routes.draw do
     get 'orders/new'
   end
   namespace :customers do
-    get 'orderd_items/index'
-    get 'orderd_items/show'
-    get 'orderd_items/finish'
-    get 'orderd_items/confirm'
-    get 'orderd_items/create'
+    get 'ordered_items/index'
+    get 'ordered_items/show'
+    get 'ordered_items/finish'
+    get 'ordered_items/confirm'
+    get 'ordered_items/create'
   end
   namespace :customers do
     get 'items/index'
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show, :edit, :new, :create, :update]
     resources :orders, only: [:index, :show, :update]
     resources :genres, only: [:index, :edit, :create, :update]
-    resources :orderd_items, only: [:update]
+    resources :ordered_items, only: [:update]
   end
 
   scope module: :customers do
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
     resources :shippings, only: [:index, :edit, :create, :update, :destroy]
     delete 'carts/all_destroy'
     resources :carts, only: [:index, :create, :update, :destroy]
-    resources :orderd_items, only: [:index, :show]
+    resources :ordered_items, only: [:index, :show]
   end
 
   get '/contact' => 'contact#index'

@@ -1,5 +1,5 @@
 注文情報入力
-<%= form_with url: orders_confirm_path, method: :post do |f| %>
+<%= form_with url: orders_confirm_path, method: :post, local: true do |f| %>
   支払い方法
   <%= f.radio_button :payment, "クレジットカード" %>クレジットカード
   <%= f.radio_button :payment, "振り込み" %>銀行振込

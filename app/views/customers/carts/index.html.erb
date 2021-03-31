@@ -6,7 +6,7 @@
     <%= attachment_image_tag(cart.item, :image) %>
     <%= cart.item.name %>
     <%= (cart.item.price * 1.1).floor.to_s(:delimited) %>円
-    <%= form_with model: cart do |f| %>
+    <%= form_with model: cart, local: true do |f| %>
       <%= f.number_field :quantity, min:0, max:10 %>
       <%= f.submit "変更" %>
     <% end %>
