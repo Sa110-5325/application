@@ -1,2 +1,29 @@
-<h1>Customers::Orders#show</h1>
-<p>Find me in app/views/customers/orders/show.html.erb</p>
+注文履歴詳細
+
+注文日
+<%= @order.created_at.strftime('%Y年 %m月 %d日') %>
+配送先
+〒<%= @order.postal_code %>
+<%= @order.address %>
+<%= @order.name %>
+支払い方法
+<%= @order.payment %>
+ステータス
+<%= @order.status %>
+
+請求情報
+
+商品合計
+<%= @order.total_fee %>
+配送料
+<%= @order.delivery_fee %>
+請求額
+<%= (@order.total_fee + @order.delivery_fee).to_s(:delimited) %>
+
+注文内容
+<% @order.ordered_items.each do |ordered_item| %>
+  商品<%= ordered_item.item.name %>
+  単価<%= (ordered_item.price * 1.1).floor.to_s(:delimited) %>
+  数量<%= ordered_item.quantity %>
+  <%= ((ordered_item.item.price * 1.1).floor * ordered_item.quantity).to_s(:delimited) %>
+<% end %>
