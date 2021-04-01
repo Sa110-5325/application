@@ -1,2 +1,14 @@
-<h1>Shippings#index</h1>
-<p>Find me in app/views/shippings/index.html.erb</p>
+配送先登録、一覧
+<%= form_with model: @shipping, local: true do |f| %>
+  宛名<%= f.text_field :name %>
+  郵便番号<%= f.text_field :postal_code %>
+  住所<%= f.text_field :address %>
+  <%= f.submit :登録 %>
+<% end %>
+<% @shippings.each do |shipping| %>
+ <%= shipping.name %>
+ <%= shipping.postal_code %>
+ <%= shipping.address %>
+ <%= link_to "編集", edit_shipping_path(shipping) %>
+ <%= link_to "削除", shipping_path(shipping), method: :delete %>
+<% end %>

@@ -1,0 +1,6 @@
+<%= form_with model: @shipping, local: true do |f| %>
+  宛名<%= f.text_field :name %>
+  郵便番号<%= f.text_field :postal_code %>
+  住所<%= f.text_field :address %>
+  <%= f.submit :更新 %>
+<% end %>
