@@ -1,5 +1,9 @@
 <% @customers.each do |customer| %>
-<%= customer.id %>
-<%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %>
-<%= customer.status %>
+  会員ID<%= customer.id %>
+  <%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %>
+  <% if customer.status %>
+    有効
+  <% else %>
+    退会
+  <% end %>
 <% end %>
