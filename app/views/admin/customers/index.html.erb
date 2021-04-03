@@ -1,9 +1,30 @@
-<% @customers.each do |customer| %>
-  会員ID<%= customer.id %>
-  <%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %>
-  <% if customer.status %>
-    有効
-  <% else %>
-    退会
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      顧客一覧
+    </div>
+  </div>
+  <table class="table">
+    <th>
+      <td>会員ID</td>
+      <td></td>
+      <td>氏名</td>
+      <td>ステータス</td>
+    </th>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td></td>
+        <td><%= customer.id %></td>
+        <td><%= attachment_image_tag customer, :profile_image, fallback: "no-image.jpg", size: "30x30", style: "border-radius: 50%;" %></td>
+        <td><%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %></td>
+        <td>
+          <% if customer.status %>
+            有効
+          <% else %>
+            退会
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
