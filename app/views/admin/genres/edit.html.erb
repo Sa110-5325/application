@@ -1,5 +1,15 @@
-ジャンル編集
-<%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
-  <%= f.text_field :name, value: @genre.name %>
-  <%= f.submit "変更" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      ジャンル編集
+    </div>
+  </div>
+  <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
+    <div class="row">
+      <%= f.text_field :name, value: @genre.name %>
+      <%= f.submit "変更" %>
+    </div>
+  <% end %>
+</div>
+
+  

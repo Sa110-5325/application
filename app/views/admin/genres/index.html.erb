@@ -1,10 +1,26 @@
-<%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "登録" %>
-<% end %>
-
-<% @genres.each do |genre| %>
-  <%= link_to edit_admin_genre_path(genre) do %>
-    <%= genre.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      ジャンル一覧&登録
+    </div>
+  </div>
+  <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
+    <div class="row">
+      <%= f.text_field :name %>
+      <%= f.submit "登録" %>
+    </div>
   <% end %>
-<% end %>
+  <% @genres.each do |genre| %>
+    <div class="row">
+      <%= link_to edit_admin_genre_path(genre) do %>
+        <%= genre.name %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+  
+
+
+
+ 

@@ -1,14 +1,25 @@
-<%= @customer.family_name %><%= @customer.first_name %>さんの会員情報
-会員ID<%= @customer.id %>
-<%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
-  姓<%= f.text_field :family_name %>
-  名<%= f.text_field :first_name %>
-  セイ<%= f.text_field :family_name_kana %>
-  メイ<%= f.text_field :first_name_kana %>
-  メールアドレス<%= f.text_field :email %>
-  電話番号<%= f.text_field :phone_number %>
-  郵便番号<%= f.text_field :postal_code %>
-  住所<%= f.text_field :address %>
-  会員ステータス<%= f.radio_button :status, true %>有効<%= f.radio_button :status, false %>退会
-  <%= f.submit :変更 %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <%= @customer.family_name %><%= @customer.first_name %>さんの会員情報編集
+    </div>
+  </div>
+  <div class="card shadow my-5">
+    <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
+      <table class="table">
+        <tr><th>会員ID</th><td><%= @customer.id %></td></tr>
+        <tr><th>姓</th><td><%= f.text_field :family_name %></td></tr>
+        <tr><th>名</th><td><%= f.text_field :first_name %></td></tr>
+        <tr><th>セイ</th><td><%= f.text_field :family_name_kana %></td></tr>
+        <tr><th>メイ</th><td><%= f.text_field :first_name_kana %></td></tr>
+        <tr><th>メールアドレス</th><td><%= f.text_field :email %></td></tr>
+        <tr><th>電話番号</th><td><%= f.text_field :phone_number %></td></tr>
+        <tr><th>郵便番号</th><td><%= f.text_field :postal_code %></td></tr>
+        <tr><th>住所</th><td><%= f.text_field :address %></td></tr>
+        <tr><th>会員ステータス</th><td><%= f.radio_button :status, true %>有効 <%= f.radio_button :status, false %>退会</td></tr>
+        <tr><th></th><td><%= f.submit :変更 %></td></tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
