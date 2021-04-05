@@ -1,14 +1,24 @@
-商品一覧
-<% @items.each do |item| %>
-  <%= attachment_image_tag item, :image %>
-  <%= link_to item.name, admin_item_path(item) %>
-  <%= item.genre.name %>
-  <%= item.info %>
-  <%= item.price %>円
-  <% if item.status == true %>
-    販売中
-  <% else %>
-    販売停止中
-  <% end %>
-<% end %>
-<%= link_to "商品登録する", new_admin_item_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      商品一覧
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% @items.each do |item| %>
+      <div class="col-sm-4 text-center">
+        <%= link_to attachment_image_tag(item, :image, fallback: "no-image.jpg", size: "300x300"), admin_item_path(item) %><br />
+        <%= item.name %><br />
+        <%= item.genre.name %>
+        <%= item.info %>
+        <%= item.price %>円
+        <% if item.status == true %>
+          販売中
+        <% else %>
+          販売停止中
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "商品登録する", new_admin_item_path %>
+</div>
