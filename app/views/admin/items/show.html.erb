@@ -1,7 +1,23 @@
-<%= attachment_image_tag @item, :image %>
-<%= @item.name %>
-<%= @item.genre.name %>
-<%= @item.info %>
-<%= @item.price %>円
-<%= @item.status %>
-<%= link_to "編集", edit_admin_item_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm text-center">
+      商品詳細
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <%= attachment_image_tag @item, :image, fallback: "no-image.jpg", size: "300x300" %>
+    </div>
+    <div class="col-sm-5">
+      <table class="table">
+        <tr><th>商品名</th><td><%= @item.name %></td></tr>
+        <tr><th>ジャンル</th><td><%= @item.genre.name %></td></tr>
+        <tr><th>商品説明</th><td><%= @item.info %></td></tr>
+        <tr><th>金額</th><td><%= @item.price %>円</td></tr>
+        <tr><th>販売ステータス</th><td><%= @item.status %></td></tr>
+      </table>
+      <%= link_to "編集", edit_admin_item_path %>
+    </div>
+  </div>
+</div>
+
