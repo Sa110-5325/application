@@ -1,13 +1,27 @@
-マイページ
-<%= attachment_image_tag @customer, :profile_image, fallback: "no-image.jpg" %>
-<%= @customer.family_name %>
-<%= @customer.first_name %>
-<%= @customer.family_name_kana %>
-<%= @customer.first_name_kana %>
-<%= @customer.postal_code %>
-<%= @customer.address %>
-<%= @customer.phone_number %>
-<%= @customer.email %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      マイページ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= attachment_image_tag @customer, :profile_image, fallback: "no-image.jpg", size: "300x300" %>
+    </div>
+    <div class="col-sm-7">
+      <table class="table">
+        <tr><th>姓</th><td><%= @customer.family_name %></td></tr>
+        <tr><th>名</th><td><%= @customer.first_name %></td></tr>
+        <tr><th>セイ</th><td><%= @customer.family_name_kana %></td></tr>
+        <tr><th>メイ</th><td><%= @customer.first_name_kana %></td></tr>
+        <tr><th>郵便番号</th><td><%= @customer.postal_code %></td></tr>
+        <tr><th>住所</th><td><%= @customer.address %></td></tr>
+        <tr><th>電話番号</th><td><%= @customer.phone_number %></td></tr>
+        <tr><th>メールアドレス</th><td><%= @customer.email %></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
 <%= link_to "編集", edit_customer_path %>
 <%= link_to "注文履歴一覧", customers_orders_index_path %>
 <%= link_to "配送先一覧", shippings_path %>
