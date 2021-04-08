@@ -1,7 +1,17 @@
-<% @items.each do |item| %>
-  <%= link_to attachment_image_tag(item, :image), item_path(item) %>
-  商品名<%= item.name %>
-  ジャンル<%= item.genre.name %>
-  説明<%= item.info %>
-  値段<%= item.price %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      商品一覧
+    </div>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-sm-4 text-center">
+        <%= link_to attachment_image_tag(item, :image, fallback: "no-image.jpg", size: "300x300"), item_path(item) %><br />
+        <%= item.name %><br />
+        <%= item.info %><br />
+        <%= item.price %>
+      </div>
+    <% end %>
+  </div>
+</div>

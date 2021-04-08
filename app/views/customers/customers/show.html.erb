@@ -21,7 +21,15 @@
       </table>
     </div>
   </div>
+  <div class="row justify-content-center mb-5">
+    <div class="col-sm-3">
+      <%= link_to "編集", edit_customer_path %>
+    </div>
+    <div class="col-sm-3">
+      <%= link_to "注文履歴一覧", customers_orders_index_path %>
+    </div>
+    <div class="col-sm-3">
+      <%= link_to "配送先一覧", shippings_path %>
+    </div>
+  </div>
 </div>
-<%= link_to "編集", edit_customer_path %>
-<%= link_to "注文履歴一覧", customers_orders_index_path %>
-<%= link_to "配送先一覧", shippings_path %>
