@@ -5,27 +5,38 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-sm-8">
+    <div class="col-sm-10">
       <% if @carts.present? %>
         <%= link_to "空にする", carts_all_destroy_path, method: :delete %><br />
         <% @sum = 0 %>
-        <% @carts.each do |cart| %>
-          <table class="table">
-            <%= attachment_image_tag cart.item, :image, fallback: "no-image.jpg", size: "50x50", class: "rounded-circle" %>
-            <%= cart.item.name %>
-            <%= (cart.item.price * 1.1).floor.to_s(:delimited) %>円
-            <%= form_with model: cart, local: true do |f| %>
-              <%= f.number_field :quantity, min:0, max:10 %>個
-              <%= f.submit "変更" %>
-            <% end %>
-            <%= ((cart.item.price * 1.1).floor * cart.quantity).to_s(:delimited) %>円
-            <%= link_to "削除", cart_path(cart), method: :delete %>
+        <table class="table">
+          <tr>
+            <th>商品画像</th>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>合計金額</th>
+          </tr>
+          <tr>
+            <% @carts.each do |cart| %>
+              <td><%= attachment_image_tag cart.item, :image, fallback: "no-image.jpg", size: "50x50", class: "rounded-circle" %></td>
+              <td><%= cart.item.name %></td>
+              <td><%= (cart.item.price * 1.1).floor.to_s(:delimited) %>円</td>
+              <td>
+                <%= form_with model: cart, local: true do |f| %>
+                  <%= f.number_field :quantity, min:0, max:10 %>個
+                  <%= f.submit "変更" %>
+                <% end %>
+              </td>
+              <td><%= ((cart.item.price * 1.1).floor * cart.quantity).to_s(:delimited) %>円</td>
+              <td><%= link_to "削除", cart_path(cart), method: :delete %></td>
+            </tr>
             <% @sum += (cart.item.price * 1.1).floor * cart.quantity %>
-          </table>
-        <% end %>
+          <% end %>
+        </table>
         <%= link_to "買い物を続ける", items_path %>
-        合計金額<%= @sum.to_s(:delimited) %>円
         <%= link_to "情報入力に進む", new_order_path %>
+        合計金額<%= @sum.to_s(:delimited) %>円
       <% else %>
         カートに商品はありません
       <% end %>
