@@ -34,9 +34,17 @@
             <% @sum += (cart.item.price * 1.1).floor * cart.quantity %>
           <% end %>
         </table>
-        <%= link_to "買い物を続ける", items_path %>
-        <%= link_to "情報入力に進む", new_order_path %>
-        合計金額<%= @sum.to_s(:delimited) %>円
+        <div class="row">
+          <div class="col-sm-3">
+            <%= link_to "買い物を続ける", items_path %>
+          </div>
+          <div class="col-sm-3">
+            <%= link_to "情報入力に進む", new_order_path %>
+          </div>
+          <div class="col-sm-4 text-right">
+            合計金額<%= @sum.to_s(:delimited) %>円
+          </div>
+        </div>
       <% else %>
         カートに商品はありません
       <% end %>
